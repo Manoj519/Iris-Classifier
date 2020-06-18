@@ -21,6 +21,6 @@ from iris_app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-path('',irishit),
+    path('',irishit),
     path('irishit/',irishit),
 ]
