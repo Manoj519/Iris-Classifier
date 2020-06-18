@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  set the title of page.  -->
+<title>Email Spam</title>
+    
+<!--  set the CDN files of javascript, bootstrap and css.  -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!--    Sweet Alert Script-->
+<!--    <script src="sweetalert2.all.min.js"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<!--    Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+<!--    External css -->
+<link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<!--    Create the header of page.    -->
+    <div class = "container-fluid home">
+        <div class = "row">
+            <div class="header">
+                <div class= "col-12">
+                    <h1 class = "header-line">Iris Classifier</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--    Create the middle of page.    -->
+    <div class = "container-fluid home" style="border: 2px solid black">
+        <div class = "row">
+            <div class="middle">
+                <div class= "col-12">
+                    <div class = "text-area">
+                    <p><b>A Machine Learning Model Using Django And KNeighborsClassifier Algorithm</b></p>
+                    </div>
+                    <form action="../irishit/" method="POST">
+                    {% csrf_token %}
+                    <div class = "col-sm-offset-2 col-sm-8 text-area">
+                        <ol class="ol">
+                        <li><input type="number" name = "T1" id = "sepallength" onkeyup="success()" placeholder="Enter The Sepal Length(CM)..." required min="0" max="10" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'" autofocus = autofocus></li>
+                        <li><input type="number" name = "T2" id = "sepalwidth" onkeyup="success()" placeholder="Enter The Sepal Width(CM)..." required min="0" max="10" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"></li>
+                        <li><input type="number" name = "T3" id = "petallength" onkeyup="success()" placeholder="Enter The Petal Length(CM)..." required min="0" max="10" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"></li>
+                        <li><input type="number" name = "T4" id = "petalwidth" onkeyup="success()" placeholder="Enter The Petal Width(CM)..." required min="0" max="10" step="0.01" pattern="^\d+(?:\.\d{1,2})?$" onblur="
+this.parentNode.parentNode.style.backgroundColor=/^\d+(?:\.\d{1,2})?$/.test(this.value)?'inherit':'red'"></li>
+                        </ol>
+                    </div>
+                    <div class = "predict-button">
+                        <button class="button" id = "button" type="submit" disabled style="display: none; margin: auto;">Predict</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--    Create the footer of page.    -->
+    <div class = "container-fluid home">
+        <div class = "row">
+            <div class="footer">
+                <div class= "col-12">
+                    <div class = "icon">
+                        <a target="_blank" href="https://github.com/Manoj519/Iris-Classifier"><i class="fab fa-github fa-lg contact-icon"></i></a>
+                         <a target="_blank" href="https://linkedin.com/in/manoj5197"><i class="fab fa-linkedin fa-lg contact-icon"></i></a>
+                        <p style="margin-bottom: 0;"><b>Manoj Goyal</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!--    check the value data   -->
+    {% if data %}
+<!--    Creating the js      -->
+<script>
+//  Use the sweetalert functions
+function set_sweetalert(){
+    if ({{data}} == 0){
+        Swal.fire({
+              title: 'Iris-Setosa'
+        })
+    }else if({{data}} == 1){
+        Swal.fire({
+              title: 'Iris-Versicolour'
+        })
+    }else if({{data}} == 2){
+        Swal.fire({
+              title: 'Iris-Virginica'
+        })
+    }else{
+    }
+};
+    
+//Call the function when page is load
+window.onload = function(){
+    document.getElementById("button").onclick = set_sweetalert();
+};
+
+// End of js 
+</script>
+{% endif %}
+<script>
+function success() {
+    if(document.getElementById("sepallength").value=="") {
+        document.getElementById('button').disabled = true;
+        document.getElementById('button').style.display = "none";
+    } else if(document.getElementById("sepalwidth").value=="") {
+        document.getElementById('button').disabled = true;
+        document.getElementById('button').style.display = "none";
+    } else if(document.getElementById("petallength").value=="") {
+        document.getElementById('button').disabled = true;
+        document.getElementById('button').style.display = "none";
+    } else if(document.getElementById("petalwidth").value=="") {
+        document.getElementById('button').disabled = true;
+        document.getElementById('button').style.display = "none";
+    } else {
+        document.getElementById('button').disabled = false;
+        document.getElementById('button').style.display = "block";
+    }
+}
+</script>
+</body>
+</html>
