@@ -18,15 +18,15 @@ This command type in command prompt at specific location(eg. F:\Iris_Data).<br/>
 ```Virtualenv myenv```<br/>
 This Command create virtual environment with myenv folder automatically.<br/>
 Now here 4 folder and 7 files are present : <br/>
-A.) .idea (folder)
-B.) .ipynb_checkpoints (folder)
+A.) .idea (folder)<br/>
+B.) .ipynb_checkpoints (folder)<br/>
 C.) iris_project (Project)<br/>
 D.) myenv (Virtual Environment)<br/>
 E.) Iris data.html (html file for visualization of code.)<br/>
-F.) Iris data.ipynb (A python notebook file.)
+F.) Iris data.ipynb (A python notebook file.)<br/>
 G.) requirement.txt (text file with all packages.)<br/>
-H.) model.pkl
-I.) frocfile
+H.) model.pkl<br/>
+I.) frocfile<br/>
 J.) .gitignore<br/>
 K.) README.md <br/>
 
