@@ -1,1 +1,1 @@
-web: gunicorn Iris_Data.wsgi
+web: gunicorn iris_app.wsgi
