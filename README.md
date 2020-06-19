@@ -56,3 +56,7 @@ Now back to command prompt and type <br/>
 (eg. (myenv) F:\Iris_Data>myenv>Python manage.py runserver).<br/>
 This will run the server and give the localhost path in it.(eg. http://127.0.0.1:8000/)<br/>
 Copy the url from your command prompt and paste on browser and enjoy the project.
+
+
+# Demonstration Of Project
+> (https://iris-flowers-classification.herokuapp.com/irishit/)
