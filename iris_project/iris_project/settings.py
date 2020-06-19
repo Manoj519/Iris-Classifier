@@ -25,7 +25,7 @@ SECRET_KEY = 'px2$st8&u3lftr&w8ipv9dzrl3%gj=*%iqgu^5ezl@u=k=9l_$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['iris-flowers-classification.herokuapp.com','127.0.0.1:8000']
 
 
 # Application definition
