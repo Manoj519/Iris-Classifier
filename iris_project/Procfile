@@ -1,1 +1,1 @@
-worker: gunicorn iris_project.wsgi
+web: gunicorn iris_project.wsgi --log-file -
